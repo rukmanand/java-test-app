@@ -6,7 +6,7 @@ node {
     sh 'mvn package'
   }
   stage('S3 upload') {
-    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'awsS3upload']]) {
+    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'jenkins-s3']]) {
        s3Upload(file:'mytest-0.0.1.war', bucket:'jenkins-uploads-rkm', path:'/var/lib/jenkins/workspace/jenkins-practice/target/mytest-0.0.1.war')
     }
   }
