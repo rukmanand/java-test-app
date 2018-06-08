@@ -7,7 +7,7 @@ node {
   }
   stage('S3 upload') {
     withAWS(profile:'jenkinsUploadToS3') {
-      s3Upload(file:'mytest-0.0.1.war', bucket:'jenkins-uploads-rkm', path:'/var/lib/jenkins/workspace/jenkins-practice/target/mytest-0.0.1.war')
+       s3Upload(file:'mytest-0.0.1.war', bucket:'jenkins-uploads-rkm', path:'/var/lib/jenkins/workspace/jenkins-practice/target/mytest-0.0.1.war')
     }
   }
 }
